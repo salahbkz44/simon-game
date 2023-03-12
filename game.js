@@ -13,8 +13,8 @@ $(".btn").click(function() {
     var userChosenColour = $(this).attr("id");
     userClickedPattern.push(userChosenColour);
   
-    playSound(userChosenColour);
     animatePress(userChosenColour);
+    playSound(userChosenColour);
   
     checkAnswer(userClickedPattern.length-1);
   });
@@ -42,14 +42,12 @@ function playSound(name){
     audio.play();
 }
 
-function animatePress(currentColor){
-    $(".btn").click(function () {
-        $("#" + currentColor).addClass("pressed");
-        setTimeout(function (){
-            $("#" + currentColor).removeClass("pressed");
-        }, 100);
-    });
-}
+function animatePress(currentColor) {
+    $("#" + currentColor).addClass("pressed");
+    setTimeout(function () {
+      $("#" + currentColor).removeClass("pressed");
+    }, 100);
+  }
 
 $(document).keydown(function() {
     if(started!=true){
